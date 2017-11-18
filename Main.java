@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        InsertionSort insertionSort = new InsertionSort();
-        insertionSort.showArray(insertionSort.iterativeSort(new int[] {5,43,3,535,5,63}));
+        InsertionSort<Integer> insertionSort = new InsertionSort<>();
+        insertionSort.showArray(insertionSort.iterativeSort(new Integer[] {5,43,3,535,52,63,-10}));
         System.out.println();
-        insertionSort.showArray(insertionSort.recursiveSort(new int[] {5,43,3,535,5,63},0));
+        insertionSort.showArray(insertionSort.recursiveSort(new Integer[] {5,43,3,535,52,63,-10},0));
 
     }
 }

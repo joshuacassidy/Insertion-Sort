@@ -1,10 +1,10 @@
-public class InsertionSort {
+public class InsertionSort<T extends Comparable<T>> {
 
-    public int[] iterativeSort(int[] arr) {
+    public T[] iterativeSort(T[] arr) {
         for(int i = 1; i < arr.length; i++) {
             int j = i;
-            while (j > 0 && arr[j-1] > arr[j]) {
-                int temp = arr[j];
+            while (j > 0 && arr[j-1].compareTo(arr[j]) >0) {
+                T temp = arr[j];
                 arr[j] = arr[j-1];
                 arr[j-1] = temp;
                 j--;
@@ -13,7 +13,7 @@ public class InsertionSort {
         return arr;
     }
 
-    public int[] recursiveSort(int[] arr, int i) {
+    public T[] recursiveSort(T[] arr, int i) {
         if(i < arr.length) {
             arr = recursiveSortSubLoop(arr,i);
             return recursiveSort(arr, i+1);
@@ -21,9 +21,9 @@ public class InsertionSort {
         return arr;
     }
 
-    public int[] recursiveSortSubLoop(int[] arr, int j) {
-        if(j > 0 && arr[j-1] > arr[j]) {
-            int temp = arr[j];
+    public T[] recursiveSortSubLoop(T[] arr, int j) {
+        if(j > 0 && arr[j-1].compareTo(arr[j]) > 0) {
+            T temp = arr[j];
             arr[j] = arr[j-1];
             arr[j-1] = temp;
             return recursiveSortSubLoop(arr,j-1);
@@ -31,10 +31,9 @@ public class InsertionSort {
         return arr;
     }
 
-    public void showArray(int[] listOfItems){
-        for(int i: listOfItems) {
+    public void showArray(T[] listOfItems){
+        for(T i: listOfItems) {
             System.out.printf("%s ",i);
         }
     }
-
 }
